@@ -21,15 +21,21 @@ class MainActivity : AppCompatActivity() {
         movie.setTitulo(titulo)
 
         binding.continuar.setOnClickListener(){
-            val compartir = getSharedPreferences("Movie", MODE_PRIVATE)
-            val editor = compartir.edit()
-            val gson = Gson()
-            val movieString = gson.toJson(movie)
-            editor.putString("Movie", movieString)
-            editor.apply()
+            if(binding.duracion.text.toString().toInt() < 0){
+                movie.duracion = duracion
+            }else{
+                val compartir = getSharedPreferences("Movie", MODE_PRIVATE)
+                val editor = compartir.edit()
+                val gson = Gson()
+                val movieString = gson.toJson(movie)
+                editor.putString("Movie", movieString)
+                editor.apply()
 
-            val intent = Intent(this@MainActivity, MovieDetailsActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this@MainActivity, MovieDetailsActivity::class.java)
+                startActivity(intent)
+            }
+
+
         }
 
     }
