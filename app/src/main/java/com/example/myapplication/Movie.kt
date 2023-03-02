@@ -1,11 +1,11 @@
 package com.example.myapplication
 
 class Movie {
-    private var titulo = ""
-    private var duracion = 0
-    private var director = ""
-    private var fecha = ""
-    private var peliculas = ArrayList<Movie>()
+    var titulo = ""
+    var duracion = 0
+    var director = ""
+    var fecha = ""
+    var peliculas = ArrayList<Movie>()
 
     constructor(titulo: String, duracion: Int, director: String, fecha: String, peliculas: ArrayList<Movie>){
         this.titulo = titulo
